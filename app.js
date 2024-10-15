@@ -1,25 +1,19 @@
-const { error } = require('console');
-const { readFile, writeFile } = require('fs');
+const http = require('http');
 
-readFile('./content/first.txt', 'utf-8', (err, result) => {
-  if (err) {
-    return;
+const server = http.createServer((req, res) => {
+  if (req.url === '/') {
+    res.end('Hello from my home page');
   }
-  const first = result;
-  readFile('./content/second.txt', 'utf-8', (err, res) => {
-    if (err) {
-      return;
-    }
-    const second = res;
-    writeFile(
-      './content/result-async.txt',
-      `this is the result created by node for ${first} , ${second}`,
-      (err, res) => {
-        if (err) {
-          return;
-        }
-        console.log(res);
-      }
-    );
-  });
+  if (req.url === '/about') {
+    res.end('Hello from my about page');
+  }
+  res.end(`
+   <h1>Opss</h1>
+   <p>Page not found</p>
+   <a href='/'>Back home</a>
+   `);
+});
+
+server.listen(3000, () => {
+  console.log('Server is running on port 3000');
 });
