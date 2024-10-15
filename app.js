@@ -1,19 +1,5 @@
-const http = require('http');
+// const _ = require('lodash');
 
-const server = http.createServer((req, res) => {
-  if (req.url === '/') {
-    res.end('Hello from my home page');
-  }
-  if (req.url === '/about') {
-    res.end('Hello from my about page');
-  }
-  res.end(`
-   <h1>Opss</h1>
-   <p>Page not found</p>
-   <a href='/'>Back home</a>
-   `);
-});
+// const numbers = [[1], 2, [3], [4, 5, [6, [7]]]];
 
-server.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+// const flatArray = _.flattenDepth(numbers, Infinity);
