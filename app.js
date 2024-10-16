@@ -1,5 +1,9 @@
-// const _ = require('lodash');
+const _ = require('lodash');
 
-// const numbers = [[1], 2, [3], [4, 5, [6, [7]]]];
+const numbers = [[1], 2, [3], [4, 5, [6, [7]]]];
 
-// const flatArray = _.flattenDepth(numbers, Infinity);
+const flatArray = _.flattenDepth(numbers, Infinity);
+
+console.log(flatArray);
+
+console.log('first element');
