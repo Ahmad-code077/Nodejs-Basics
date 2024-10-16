@@ -1,9 +1,11 @@
-const _ = require('lodash');
+const EventEmittor = require('events');
 
-const numbers = [[1], 2, [3], [4, 5, [6, [7]]]];
+const custom = new EventEmittor();
 
-const flatArray = _.flattenDepth(numbers, Infinity);
-
-console.log(flatArray);
-
-console.log('first element');
+custom.on('setter', () => {
+  console.log('first emiter event');
+});
+custom.on('setter', () => {
+  console.log('second emitter event found ');
+});
+custom.emit('setter');
